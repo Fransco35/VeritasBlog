@@ -1,0 +1,67 @@
+<%- include('partials/header'); -%>
+<%- include('search'); -%>
+
+<div class="container-two">
+<section id="content">
+  <div class="row">
+  <div class="col-md-9 posts row">
+    <% if (posts != null) { %>
+    <% posts.forEach(function(post){ %>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 eachPost mainboard">
+        <article>
+          <figure>
+            <h3><%= post.title %></h3>
+             <div class="imageDiv">
+              <img class="contentImg" src="data:image/<%=post.image.contentType%>;base64,<%=post.image.data.toString('base64') %>" alt="post image">
+             </div>
+          </figure>
+          <div class="storyDiv">
+            <p><%= post.content.substring(0,100) + "..." %>
+              <a class="postBtn" href="/posts/<%=post.id%>">Read More</a>
+             </p> 
+          </div>
+          <div class="postdate">Published by veritasblog at <%= post.date %></div>
+        </article>
+      </div>
+     <% });  %>
+     <% } %>
+
+     <nav class="navPagination" aria-label="...">
+      <% if (pages > 0) { %>
+        <ul class="pagination text-center">
+            <% if (current == 1) { %>
+                <li class=" page-item disabled"><a class="page-link">First</a></li>
+            <% } else { %>
+                <li class=" page-item"><a class="page-link" href="/1">First</a></li>
+            <% } %>
+            <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+            <% if (i !== 1) { %>
+                <li class=" page-item disabled"><a class="page-link">...</a></li>
+            <% } %>
+            <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                <% if (i == current) { %>
+                    <li class="active page-item "><a class="page-link"><%= i %></a></li>
+                <% } else { %>
+                    <li class="page-item"><a class="page-link" href="/<%= i %>"><%= i %></a></li>
+                <% } %>
+                <% if (i == Number(current) + 4 && i < pages) { %>
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                <% } %>
+            <% } %>
+            <% if (current == pages) { %>
+                <li class="page-item disabled"><a class="page-link">Last</a></li>
+            <% } else { %>
+                <li class="page-item"><a class="page-link" href="/<%= pages %>">Last</a></li>
+            <% } %>
+        </ul>
+      <% } %>
+      </nav>
+  </div>
+  <div class="sideboard col-md-3">
+  </div>
+  </div>
+</section>
+
+</div>
+
+<%- include('partials/footer'); -%>
