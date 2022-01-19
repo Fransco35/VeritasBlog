@@ -1,257 +1,251 @@
 /* General */
 
 body,
-html{
-    width: 100%;
-	height: 100vh;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+html {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
-body, p {
-   font: 400 1rem/1.625rem "Open Sans", sans-serif;
+body,
+p {
+  font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
-body{
-    background-image: url("../images/IMG_6863.JPG");
-
+body {
+  background-image: url("../images/IMG_6863.JPG");
 }
 
-
-img{
-    border-radius: 0.375em; 
-    max-width: 100%;
-    height: auto;
+img {
+  border-radius: 0.375em;
+  max-width: 100%;
+  height: auto;
 }
 
-figure{
-    position: relative;
-    overflow: hidden;
+figure {
+  position: relative;
+  overflow: hidden;
 }
 
-h1, h3{
-    color: #3d4449;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+h1,
+h3 {
+  color: #3d4449;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-h3{
-    text-align: left;
+h3 {
+  text-align: left;
 }
 
-article{
-    padding: 10px;
-    box-sizing: border-box;    
+article {
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-article p{
-    font-size: 15px;
-    line-height: 1.4;
-    text-align: left;
+article p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
 }
 
 footer {
-    position:relative;
-    background-color:#000 ;
-    margin-top: 30px;
-    padding-top: 2.25rem;
-	padding-bottom: 1rem;
-	text-align: center;
-    width: 100%;
+  position: relative;
+  background-color: #000;
+  margin-top: 30px;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  width: 100%;
 }
 
 /* Navbar */
 
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #000;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 50px;
-    font-size: 12px;
-    letter-spacing: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #000;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 50px;
+  font-size: 12px;
+  letter-spacing: 5px;
 }
 
-.navbar-brand{
-    font-family: 'Besley', serif;
-    font-weight: 500;
+.navbar-brand {
+  font-family: "Besley", serif;
+  font-weight: 500;
 }
 
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
+.navbar-nav li a:hover {
+  color: #1abc9c !important;
 }
 
-.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
-    color: #FFF;
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #fff;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color:#FFF ;
-    font-family: 'Azeret Mono', monospace;
+  color: #fff;
+  font-family: "Azeret Mono", monospace;
 }
 
-.navbar-toggler{
-    background-color: #FFF;
+.navbar-toggler {
+  background-color: #fff;
 }
 
-.container-fluid{
-    position: relative;
+.container-fluid {
+  position: relative;
 }
 
 /* Body */
-.container-two{
-    background-color: #fff;
-    position: relative;
-    padding: 20px;
-    min-height: 100vh;
-    width: 100%;
+.container-two {
+  background-color: #fff;
+  position: relative;
+  padding: 20px;
+  min-height: 100vh;
+  width: 100%;
 }
 
 /* search icon */
-@media screen and (max-width:767px) {
-    .search-icon{
-        display: none;
-    }
+@media screen and (max-width: 767px) {
+  .search-icon {
+    display: none;
+  }
 }
-
 
 /* Header Section */
 
-header p{
-   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.3em;
-    letter-spacing: 0.050em;
-    margin-top: -0.5em;
-    margin-bottom: 0;
-    text-transform: uppercase;
+header p {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+  margin-top: -0.5em;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }
 
-
-.headerP{
-    font-size: small;
-    margin-top: 0;
+.headerP {
+  font-size: small;
+  margin-top: 0;
 }
-
-
 
 /* headpost */
-#header{
-    border-top: 0;
-    margin: 2.5rem 0;
-    padding: 0.5rem 0;
+#header {
+  border-top: 0;
+  margin: 2.5rem 0;
+  padding: 0.5rem 0;
 }
 
 /* blog title */
-.ad-section{
-    text-align: center;
+.ad-section {
+  text-align: center;
 }
 
-.blog-title{
-    color: #fff;
-    padding: 30px 0;
+.blog-title {
+  color: #fff;
+  padding: 30px 0;
 }
 
-.blog-title h3{
-    text-align: center;
-    color: #fff;
+.blog-title h3 {
+  text-align: center;
+  color: #fff;
 }
 
-.search-panel{
-    display: none;
+.search-panel {
+  display: none;
 }
 
-.search-icon{
-    position: absolute;
-    top: 155px;
-    right: 220px;
+.search-icon {
+  position: absolute;
+  top: 155px;
+  right: 220px;
 }
 
-
-.search-btn{
-    margin-top: 5px;
-    background: #fff;
-    border: 2px  #fff;
-    border-radius: 25%;
+.search-btn {
+  margin-top: 5px;
+  background: #fff;
+  border: 2px #fff;
+  border-radius: 25%;
 }
 
-
-.fa-search{
-   color: #000;
+.fa-search {
+  color: #000;
 }
 
-.fa-times{
-    color: #000;
+.fa-times {
+  color: #000;
 }
 
-.search-icon:hover{
-    cursor: pointer;
+.search-icon:hover {
+  cursor: pointer;
 }
 
 /* Content */
 
-.content{
-    background-color: #fff;
-    padding: 20px 15px;
+.content {
+  background-color: #fff;
+  padding: 20px 15px;
 }
 
-.row{
-    margin-bottom: 30px;
+.row {
+  margin-bottom: 30px;
 }
 
-#header, .posts{
-    padding:15px;
+#header,
+.posts {
+  padding: 15px;
 }
 
-.posts{
-    display: flex;
-    justify-content: space-evenly;
+.posts {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .posts {
     width: 100%;
+  }
 }
 
-@media screen and (min-width:0px) and (max-width:768px) {
-    .posts{
-        width: 100%;
-    }
+.mainboard {
+  border-bottom: 1px solid #000;
 }
 
-.mainboard{
-    border-bottom: 1px solid #000;
+.imageDiv {
+  width: 100%;
 }
 
-
-.imageDiv{
-    width: 100%;
-}
-
-.contentImg{
-    max-height: 330px;
-    width: 100%;
-    overflow: hidden;
+.contentImg {
+  max-height: 330px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .storyDiv p {
-    font-size: 13px;
+  font-size: 13px;
 }
 
-.postBtn{
-    background-color: transparent;
-    border-radius: 0.375em;
-    color: #000;
-    padding: 0.2em 0.5em;
-    text-decoration: none;
-    box-shadow: inset 0 0 2px #000;
-
+.postBtn {
+  background-color: transparent;
+  border-radius: 0.375em;
+  color: #000;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  box-shadow: inset 0 0 2px #000;
 }
 
-.postBtn:hover{
-    background-color:#000 ;
-    color: #fff;
+.postBtn:hover {
+  background-color: #000;
+  color: #fff;
 }
 
-.postdate{
-    text-align: left;
-    font-size: smaller;
+.postdate {
+  text-align: left;
+  font-size: smaller;
 }
 
 /* .sideboard{
@@ -267,90 +261,88 @@ header p{
 
 /* Footer */
 
-
 .footer-padding {
-	position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
-
 
 .footer p {
-margin-bottom: 0;
-font-size: 12px;
-color: #FFF;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #fff;
 }
 
-.no-line{
-    text-decoration: none;
-    color: #FFF;
+.no-line {
+  text-decoration: none;
+  color: #fff;
 }
 
-.fa-circle{
-    color: #fff;
+.fa-circle {
+  color: #fff;
 }
 
-.fab{
-    color: #000;
+.fab {
+  color: #000;
 }
 
 /* post in new article */
 
-.content{
-    text-align: center;
+.content {
+  text-align: center;
 }
 
-.postImg{
-    width: 100;
-    max-height: 400px;
-    margin: 10px 0;
+.postImg {
+  width: 100;
+  max-height: 400px;
+  margin: 10px 0;
 }
 
 /* signup page */
-.icons{
-    width: fit-content;
+.signupDiv {
+  text-align: left;
+  background: #fff;
+  padding: 50px;
 }
 
-.signupDiv{
-    text-align: left;
-    background: #FFF;
-    padding: 50px;
+.socialLog {
+  margin-bottom: 30px;
+  width: 100%;
 }
 
-
-
-.socialLog{
-    margin-bottom: 30px;
-    width: 80%;
+.icons {
+  width: fit-content;
 }
+
 /* login page */
-.loginDiv{
-    text-align: left;
-    background: #FFF;
-    padding: 50px;
+.loginDiv {
+  text-align: left;
+  background: #fff;
+  padding: 50px;
 }
 
-.composeContent{
-    text-align: left;
-    background: #FFF;
-    padding: 50px;
+/* compose page */
+.composeContent {
+  text-align: left;
+  background: #fff;
+  padding: 50px;
 }
 
 /* pagination */
-.navPagination{
-    background-color: #FFF;
-    margin: 15px 5px ;
+.navPagination {
+  background-color: #fff;
+  margin: 15px 5px;
 }
 
-.navPagination ul{
-    display: flex;
-    justify-content: center;
+.navPagination ul {
+  display: flex;
+  justify-content: center;
 }
 
 .page-item.active .page-link {
-    background-color: #000;
-    border-color: #000;
-} 
+  background-color: #000;
+  border-color: #000;
+}
 
-.page-link{
-    color: #000;
+.page-link {
+  color: #000;
 }
