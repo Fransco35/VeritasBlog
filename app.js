@@ -319,6 +319,7 @@ Post.create(post, (err, item)=> {
 });
 
 
+
 app.get('/posts/:postId', (req, res) => {
   var ObjectId = require('mongodb').ObjectId;
   const requestedPostId = req.params.postId;
@@ -342,6 +343,8 @@ app.get('/posts/:postId', (req, res) => {
   });
 
 });
+
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
