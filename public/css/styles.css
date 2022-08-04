@@ -39,6 +39,11 @@ h3 {
   text-align: left;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 article {
   padding: 10px;
   box-sizing: border-box;
@@ -60,6 +65,11 @@ footer {
   width: 100%;
 }
 
+label {
+  max-width: 100%;
+  font-weight: bold;
+}
+
 /* Navbar */
 
 .navbar {
@@ -68,6 +78,7 @@ footer {
   background-color: #000;
   border: 0;
   border-radius: 0;
+  display: none;
   margin-bottom: 50px;
   font-size: 12px;
   letter-spacing: 5px;
@@ -160,7 +171,8 @@ header p {
 
 .search-icon {
   position: absolute;
-  top: 155px;
+  /* top: 155px; only if navbar is visible  */
+  top: 36px;
   right: 220px;
 }
 
@@ -345,4 +357,105 @@ header p {
 
 .page-link {
   color: #000;
+}
+
+/* comment section */
+
+.commentbox {
+  height: auto !important; 
+}
+
+.comment_hr{
+  border: 0;
+  height: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+}
+.comment_area {
+height: auto !important;
+margin-bottom: 20px;
+}
+
+.comments {
+  font-weight: 700;
+}
+
+.alert_danger {
+  background-color: #f2dede;
+   border-color: #ebccd1;
+   color: #a94442;
+   text-align: left;
+}
+
+.comment_left {
+  font-size: 14px;
+  line-height: 50px;
+  display: inline-block;
+}
+
+.comment_btn {
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 3px;
+    line-height: 45px;
+    padding: 0 25px;
+    border: 1px solid #000;
+}
+
+.comment_btn:hover {
+  background: #fff;
+  color: #000;
+
+}
+
+.comment {
+  background: #f4f4f4;
+  text-align: left;
+  border: 1px solid #c1c1c1;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.error {
+  display: none;
+}
+
+.main_comment {
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.pic {
+float: left;
+width: 60px;
+height: 60px;
+margin-right: 10px;
+border: 1px solid #9b9b9b;
+border-radius: 3px;
+overflow: hidden;
+}
+
+.profile_name {
+  font-size: 14px;
+  text-decoration: underline;
+  color: rgb(65, 44, 44);
+}
+
+.profile_name  p {
+ margin-bottom: 0;
+}
+
+.profile_name:hover {
+  color: #000;
+}
+
+.success {
+  display: none;
+}
+
+.main_comment {
+  margin: 0;
 }

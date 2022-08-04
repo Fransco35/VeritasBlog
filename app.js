@@ -45,10 +45,9 @@ const upload = multer({
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
-// app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(express.static('public'));
 app.use('/static', express.static('./static/'));
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 
 app.use(session({
@@ -60,7 +59,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); 
 
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true,  useUnifiedTopology: true}); 
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify:false, useCreateIndex: true}); 
 
 const userSchema = new mongoose.Schema ({
   email: String,
@@ -75,13 +74,35 @@ const postSchema = new mongoose.Schema ({
   image: { data: Buffer, contentType: String },
   title: String,
   content: String,
-  date: String
+  date: String,
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
+  }]
 });
+
+const commentSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  comment: String,
+  date: {
+    type: Date,
+    default: Date.now()
+  },
+  post: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post'
+  }
+})
+
+
 
 
 
 const Post = mongoose.model("Post", postSchema);
 const User = mongoose.model("User", userSchema);
+const Comment = mongoose.model("Comment", commentSchema);
+
 
 
 passport.use(User.createStrategy());
@@ -136,7 +157,7 @@ app.get('/', (req, res) => {
       .skip((perPage * page) - perPage)
       .limit(perPage)
       .exec((err, posts) => {
-        Post.count().exec((err, count) => {
+        Post.countDocuments().exec((err, count) => {
           if(err){
                 console.log(err)
               }
@@ -150,6 +171,7 @@ app.get('/', (req, res) => {
               
         })
       })
+
 });
 
 app.get('/search', (req, res) => {
@@ -163,7 +185,7 @@ app.get('/search', (req, res) => {
     .skip((perPage * page) - perPage)
     .limit(req.query.limit)
     .exec((err, post) => {
-      Post.count().exec((err, count)=> {
+      Post.countDocuments().exec((err, count)=> {
         if(err) {
           console.log(err)
         } else {
@@ -251,7 +273,7 @@ app.get('/:page', (req, res) => {
       .skip((perPage * page) - perPage)
       .limit(perPage)
       .exec((err, posts) => {
-        Post.count().exec((err, count) => {
+        Post.countDocuments().exec((err, count) => {
           if(err){
                 console.log(err)
               }
@@ -318,12 +340,74 @@ Post.create(post, (err, item)=> {
 
 });
 
+app.post('/post/:id/comment', async (req, res) => {
+  if(req.body.email) {
+
+  var ObjectId = require('mongodb').ObjectId;
+
+  const requestedPostId = req.body.postId
+
+  const relatedPost =  await Post.findOne({_id: ObjectId(requestedPostId)});
+
+    const comment = new Comment ({
+      name: req.body.name,
+      email: req.body.email,
+      comment: req.body.dComment
+    })
+
+
+     await comment.save()
+
+     relatedPost.comments = relatedPost.comments || []
+
+     relatedPost.comments.push(comment);
+ 
+       await  relatedPost.save(err => {
+         if(err) {
+           console.log(err)
+         } else {
+          res.sendStatus(200)
+         }
+       })
+        
+  } else {
+
+  var ObjectId = require('mongodb').ObjectId;
+
+  const requestedPostId = req.body.postId
+
+  const relatedPost =  await Post.findOne({_id: ObjectId(requestedPostId)});
+
+    const comment = new Comment({
+      name: req.body.fName,
+      email: 'Nil',
+      comment: req.body.dComment
+    });
+
+    await comment.save()
+
+     relatedPost.comments = relatedPost.comments || []
+
+     relatedPost.comments.push(comment);
+ 
+       await  relatedPost.save(err => {
+         if(err) {
+           console.log(err)
+         } else {
+          res.sendStatus(200)
+         }
+       });
+
+  }
+});
 
 
 app.get('/posts/:postId', (req, res) => {
   var ObjectId = require('mongodb').ObjectId;
   const requestedPostId = req.params.postId;
-   Post.findOne({_id: ObjectId(requestedPostId)}, (err, post) => {
+
+
+   Post.findOne({_id: ObjectId(requestedPostId)}).populate("comments").exec((err, post) => {
      if (err){
        console.log(err);
      } else{
@@ -332,12 +416,16 @@ app.get('/posts/:postId', (req, res) => {
          data:new Buffer.from(postImg, 'base64'),
          contentType: post.image.contentType
        }
+      
      res.render("post", {
+      id: requestedPostId,
       image: image, 
       title: post.title,
       content: post.content,
-      date: post.date
+      date: post.date,
+      comments: post.comments
     });
+
      }
 
   });

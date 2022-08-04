@@ -5,8 +5,69 @@
     <img src="data:image/<%=image.contentType%>;base64,<%=image.data.toString('base64') %>" class="postImg" alt="post image">
     <p><%=  content %> </p>
     <div class="postdate">Published by veritasblog at <%= date %></div>
-</div>
 
+    <hr class="comment_hr">
+    <!-- comment section begin -->
+    <div class="comment_area">
+
+        <h3 class="comments">Comments <span>(0)</span></h3>
+        <div class="alert alert_danger">
+            <h5><b>Disclaimer</b></h5>
+            <h6>Comments do not reflect the opinions of the management</h6>
+        </div>
+        
+        <!-- comment ejs starts here -->
+        <% if(comments != null) { %>
+            <%  comments.forEach(comment => { %>
+              <div class="comment">
+                  <a href="#" class="pic">
+                      <img src="/static/avatar.png" alt="avatar">
+                  </a>
+                  <div class="comment_holder">
+                      <div class="comment_top">
+                          <a href="#" class="profile_name">
+                            <p><%=  comment.name %> </p>                     
+                          </a>
+                          <p class="main_comment">
+                                <p><%=  comment.comment%> </p>
+                          </p>
+                      </div>
+                  </div>
+           </div>
+           <% })  %>
+          <% }  %>
+
+        <!-- comment ejs ends here -->
+         
+        <h3>Add your comment</h3>
+        <div class="error alert alert-danger"></div>
+        <!-- <div class="loading"></div> -->
+        <div class="success alert alert-success">Your comment has been successfully submitted</div>
+        <input id="id" type="hidden" name="_id" value= <%= id %>>
+        <div class="details">
+            <input id="FName" type="text" placeholder="Full Name" class="form-control" >
+            <br>
+            <input id="cEmail" type="email"  placeholder="Email" class="form-control" >
+            <br>
+        </div>
+        <div class="commentbox">
+        <textarea id="comment"  class="form-control" name="comment" cols="5" rows="5" placeholder="Enter your comment"></textarea>
+        <br>
+        <div class="comment_left">
+        <input type="checkbox" name="Anonymous" class="anonymous"> 
+        <label for="details">Anonymous</label>
+        <br>
+        </div>
+        <input type="button" class="comment_btn" value="Submit Comment">
+        <div class="clearfix"></div>
+        </div>
+    </div>
+    <hr class="comment_hr">
+
+    
+    
+    <!-- comment section end -->
+</div>
 
 <%- include('partials/footer'); -%>
 
