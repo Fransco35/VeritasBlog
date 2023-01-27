@@ -1,5 +1,5 @@
 # VeritasBlog
-Veritas Blog: A blog web application built with MEN (Mongodb, Express and Node) and Ejs
+Veritas Blog: A blog web application built with Mongodb, Express, Node and Ejs
 
   Hello and welcome to veritas blog.The frontend is built with HTML, CSS, Javascript and Ejs while the backend is built with Node using Mongodb as the database. This blog enables a user who has signed up to be able to create and upload post in blog. For users who haven't registered blog posts are accessible to be read but attempts to create posts will be redirected to the sign up page. 
   
