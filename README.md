@@ -5,12 +5,13 @@ Veritas Blog: A blog web application built with MEN (Mongodb, Express and Node) 
   
 
 ## FEATURES
-- FaceBook Sign up and login or
-- Google Sign up and login or
-- email and password sign up and login 
+- FaceBook Sign up and login 
+- Google Sign up and login 
+- Email and password sign up and login 
 - Post Pagination
 - Blog post upload including text and images(using multer)
 - Search input functionality
+- Commenting functionality for readers
 - Display blog post according to dates posted in a descending order
 
 ## Env. Variables
@@ -25,4 +26,12 @@ MONGO_URI= your mongodb uri
 FACEBOOK_APP_ID = your facebook app ID
 FACEBOOK_APP_SECRET = your facebook app secret
 ```
-### It is open for contributions 
+
+### Install and Run
+```
+npm install
+node app.js
+```
+
+#### Happy Coding
+
