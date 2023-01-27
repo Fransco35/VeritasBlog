@@ -78,7 +78,7 @@ label {
   background-color: #000;
   border: 0;
   border-radius: 0;
-  display: none;
+  display: block;
   margin-bottom: 50px;
   font-size: 12px;
   letter-spacing: 5px;
@@ -171,8 +171,8 @@ header p {
 
 .search-icon {
   position: absolute;
-  /* top: 155px; only if navbar is visible  */
-  top: 36px;
+  top: 155px; 
+  /* top: 36px; */
   right: 220px;
 }
 
