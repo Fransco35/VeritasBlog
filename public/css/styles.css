@@ -203,6 +203,7 @@ header p {
 }
 
 .content_p {
+  text-align: left;
   white-space: pre-wrap;
 }
 
