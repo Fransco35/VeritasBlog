@@ -202,6 +202,10 @@ header p {
   padding: 20px 15px;
 }
 
+.content_p {
+  white-space: pre-wrap;
+}
+
 .row {
   margin-bottom: 30px;
 }
